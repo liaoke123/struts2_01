@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.ssii.pojo.Fee" table="cost">
+        <id name="id" column="id" type="java.lang.Integer">
+            <!--主键自增长策略 -->
+            <generator class="identity">
+            </generator>
+        </id>
+        <property name="feeName" column="name" type="java.lang.String"></property>
+        <property name="baseDuration" column="base_duration" type="integer"></property>
+        <property name="baseCost" column="base_cost" type="float"></property>
+        <property name="unitCost" column="uniy_cost" type="float"></property>
+        <property name="status" column="status" type="string"></property>
+        <property name="descr" column="descr" type="string"></property>
+        <!--需要type配置是否正确,看数据库的运行-->
+        <property name="createTime" column="creatime" type="date"></property>
+        <property name="startTime" column="startime" type="date"></property>
+    </class>
+</hibernate-mapping>
