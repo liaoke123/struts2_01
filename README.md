@@ -1,0 +1,3 @@
+# struts2_01
+测试将本地的代码提交到GitHub中
+成功从idea中将代码push到GitHub中
