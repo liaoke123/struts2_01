@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:mysql://localhost:3306/test</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+
+    <!--显示sql语句和优化sql语句-->
+    <property name="show_sql">true</property>
+    <property name="format_sql">true</property>
+
+    <!--引入映射文件-->
+    <mapping resource="com/ssii/pojo/Fee.hbm.xml"></mapping>
+    <mapping class="com.ssii.pojo.Role"/>
+    <mapping resource="com/ssii/pojo/Role.hbm.xml"/>
+    <mapping class="com.ssii.pojo.AdminInfo"/>
+    <mapping resource="com/ssii/pojo/AdminInfo.hbm.xml"/>
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
+  </session-factory>
+</hibernate-configuration>
