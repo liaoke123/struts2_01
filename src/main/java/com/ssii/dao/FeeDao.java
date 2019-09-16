@@ -3,11 +3,8 @@ package com.ssii.dao;
 import com.ssii.pojo.Fee;
 import com.ssii.utils.ConnectionUtils;
 import com.ssii.utils.HibernateUtils;
-import org.hibernate.Hibernate;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -30,6 +27,24 @@ public class FeeDao {
     private static final String deleteById = "delete from cost where id=?";
     private static final String update = "update cost set name=?,base_duration=?," +
             "base_cost=?,unit_cost=? where id=?";
+
+    /*
+    初始化方法
+     */
+    public void init(){
+        System.out.println("触发了FeeDao的初始化方法...");
+    }
+
+    public FeeDao() {
+        System.out.println("FeeDao对象被创建了...");
+    }
+
+    /*
+        销毁方法
+         */
+    public void destroy(){
+        System.out.println("触发了FeeDao的销毁方法...");
+    }
 
     /*查询所有*/
     public static List<Fee> findAll(){
