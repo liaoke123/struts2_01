@@ -28,4 +28,9 @@
             <column name="erolldate" sql-type="date"/>
         </property>
     </class>
+    <query name="findAdmin">
+        <![CDATA[
+        select new AdminInfo(a.name,a.telephone,a.email) from AdminInfo as a where a.adminCode=?
+        ]]>
+    </query>
 </hibernate-mapping>

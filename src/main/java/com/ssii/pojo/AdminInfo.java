@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Entity
-@Table(name = "admin_info", schema = "test", catalog = "")
+@Table(name = "admin_info", schema = "test", catalog = "test")
 public class AdminInfo {
     private int id;
     private String adminCode;
@@ -14,6 +14,16 @@ public class AdminInfo {
     private String name;
     private String telephone;
     private String email;
+
+    public AdminInfo() {
+    }
+
+    public AdminInfo(String name, String telephone, String email) {
+        this.name = name;
+        this.telephone = telephone;
+        this.email = email;
+    }
+
     private Date erolldate;
 
     //便于处理数据库查询结果时,快速的将结果转换成对象.

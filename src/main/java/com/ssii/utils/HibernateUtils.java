@@ -13,9 +13,10 @@ public class HibernateUtils {
     static {
         try {
             //加载hibernate的全局配置文件(hibernate.cfg.xml)
-            Configuration configuration = new Configuration().configure();
+            Configuration configuration = new Configuration();
+            configuration.configure("/hibernate.cfg.xml");
 
-            //会话工厂
+            //获取会话工厂
             sessionFactory = configuration.buildSessionFactory();
         } catch (HibernateException e) {
             e.printStackTrace();

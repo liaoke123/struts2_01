@@ -3,7 +3,7 @@ package com.ssii.pojo;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "role", schema = "test", catalog = "")
+@Table(name = "role", schema = "test", catalog = "test")
 public class Role {
     private int id;
     private String name;
