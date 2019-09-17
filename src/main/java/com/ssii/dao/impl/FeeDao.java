@@ -1,10 +1,12 @@
-package com.ssii.dao;
+package com.ssii.dao.impl;
 
 import com.ssii.pojo.Fee;
 import com.ssii.utils.ConnectionUtils;
 import com.ssii.utils.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.springframework.orm.hibernate5.HibernateTemplate;
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,10 +17,9 @@ import java.util.Date;
 import java.util.List;
 
 //查询数据库,获取数据,封装
-public class FeeDao {
+public class FeeDao extends HibernateDaoSupport {
     //定义一个查询语句
-    private static final String sql = "select id, name, base_duration, base_cost, unit_cost, creatime, " +
-            "startime, status, descr from cost";
+    private static final String sql = "select id, name, base_duration, base_cost, unit_cost from cost";
     private static final String totalRowNum = "select count(*) from cost";
     private static final String findByName = "select id,name,base_duration,base_cost," +
             "unit_cost,creatime,startime from cost where name=?";

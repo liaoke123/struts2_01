@@ -2,6 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -9,9 +10,11 @@
        http://www.springframework.org/schema/aop/spring-aop.xsd
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
 ">
     <!--dao层-->
-    <bean id="feeDao" class="com.ssii.dao.FeeDao"
+    <bean id="feeDao" class="com.ssii.dao.impl.FeeDao"
           init-method="init" destroy-method="destroy"
           lazy-init="true" scope="prototype">
     </bean>
@@ -22,11 +25,19 @@
     </bean>
 
     <!--aop-->
-    <!--切点-->
+    <!--具有增强作用的类-->
+    <bean id="loggerAdvice" class="com.ssii.advice.LoggerAdvice"></bean>
+    <aop:config>
+        <!--切点-->
+        <aop:pointcut id="pointcut1" expression="execution(* com.ssii.service..*.*(..))"/>
+        <!--切面-->
+        <aop:aspect id="aspect1" ref="loggerAdvice" >
+            <aop:after-throwing method="execute" throwing="e" pointcut-ref="pointcut1"></aop:after-throwing>
+        </aop:aspect>
 
-    <!--增强-->
+    </aop:config>
 
-    <!--切面-->
-
+    <!--自动扫描包中的注解-->
+    <context:component-scan base-package="com.ssii.service"></context:component-scan>
 
 </beans>

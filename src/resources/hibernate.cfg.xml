@@ -3,21 +3,18 @@
     "-//Hibernate/Hibernate Configuration DTD//EN"
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-  <session-factory>
+  <!--<session-factory>    这里的内容放到了spring的配置文件中
     <property name="connection.url">jdbc:mysql://localhost:3306/test</property>
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-
-    <!--显示sql语句和优化sql语句-->
+    &lt;!&ndash;显示sql语句和优化sql语句&ndash;&gt;
     <property name="show_sql">true</property>
     <property name="format_sql">true</property>
 
-    <!--引入映射文件-->
-    <mapping resource="com/ssii/pojo/Fee.hbm.xml"></mapping>
-    <mapping class="com.ssii.pojo.Role"/>
+    &lt;!&ndash;引入映射文件&ndash;&gt;
+    <mapping resource="com/ssii/pojo/Fee.hbm.xml"/>
     <mapping resource="com/ssii/pojo/Role.hbm.xml"/>
-    <mapping class="com.ssii.pojo.AdminInfo"/>
     <mapping resource="com/ssii/pojo/AdminInfo.hbm.xml"/>
-    <!-- DB schema will be updated if needed -->
-    <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
-  </session-factory>
+    &lt;!&ndash; DB schema will be updated if needed &ndash;&gt;
+    &lt;!&ndash; <property name="hibernate.hbm2ddl.auto">update</property> &ndash;&gt;
+  </session-factory>-->
 </hibernate-configuration>

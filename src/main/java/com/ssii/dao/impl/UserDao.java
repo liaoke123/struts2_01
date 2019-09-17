@@ -1,4 +1,4 @@
-package com.ssii.dao;
+package com.ssii.dao.impl;
 
 import com.ssii.pojo.AdminInfo;
 import com.ssii.utils.ConnectionUtils;

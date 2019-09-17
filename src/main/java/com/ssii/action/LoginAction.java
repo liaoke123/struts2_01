@@ -1,11 +1,7 @@
 package com.ssii.action;
 
-import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.ActionSupport;
-import com.ssii.dao.UserDao;
+import com.ssii.dao.impl.UserDao;
 import com.ssii.pojo.AdminInfo;
-
-import java.util.Map;
 
 public class LoginAction extends BaseAction {
     //设置了getter 和 setter方法,是为了获取页面传递过来的参数

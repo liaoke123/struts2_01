@@ -10,11 +10,29 @@
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd
 ">
-    <!--FeeDao-->
+    <!--dao层-->
     <bean id="feeDao" class="com.ssii.dao.FeeDao"
           init-method="init" destroy-method="destroy"
-          lazy-init="true" >
-
+          lazy-init="true" scope="prototype">
     </bean>
+
+    <!-- service层-->
+    <bean id="feeService" class="com.ssii.service.FeeServiceSimple" scope="prototype">
+        <property name="feeDao" ref="feeDao" />
+    </bean>
+
+    <!--aop-->
+    <!--具有增强作用的类-->
+    <bean id="loggerAdvice" class="com.ssii.advice.LoggerAdvice"></bean>
+    <aop:config>
+        <!--切点-->
+        <aop:pointcut id="pointcut1" expression="execution(* com.ssii.service..*.*(..))"/>
+        <!--切面-->
+        <aop:aspect id="aspect1" ref="loggerAdvice" >
+            <aop:after-throwing method="execute" throwing="e" pointcut-ref="pointcut1"></aop:after-throwing>
+        </aop:aspect>
+
+    </aop:config>
+
 
 </beans>

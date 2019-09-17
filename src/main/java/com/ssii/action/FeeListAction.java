@@ -1,7 +1,7 @@
 package com.ssii.action;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.ssii.dao.FeeDao;
+import com.ssii.dao.impl.FeeDao;
 import com.ssii.pojo.Fee;
 
 import java.util.List;

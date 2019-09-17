@@ -96,10 +96,10 @@ public class Fee {
         fee.setBaseDuration(rs.getInt(3));
         fee.setBaseCost(rs.getFloat(4));
         fee.setUnitCost(rs.getFloat(5));
-        fee.setCreateTime(rs.getDate(6));
-        fee.setStartTime(rs.getDate(7));
-        fee.setStatus(rs.getString(8));
-        fee.setDescr(rs.getString(9));
+        // fee.setCreateTime(rs.getDate(6));
+        //fee.setStartTime(rs.getDate(7));
+        //fee.setStatus(rs.getString(8));
+        //fee.setDescr(rs.getString(9));
         return fee;
     }
 
